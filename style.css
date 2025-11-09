@@ -1,0 +1,264 @@
+/*
+    Файл: style.css
+    Описание: Стили для приглашения на свадьбу.
+*/
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #f1c98c;
+    background-color: #f4f4f4;
+    overflow-x: hidden; /* Предотвращаем горизонтальную прокрутку */
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Темный фон */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Максимальный z-index, чтобы прелоадер был поверх всего */
+    transition: opacity 0.8s ease-out; /* Плавное исчезновение */
+}
+
+#preloader video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Видео покрывает весь экран, сохраняя пропорции */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#preloader .content {
+    position: relative;
+    z-index: 2; /* Текст поверх видео */
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для читаемости текста */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#unlock-text {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    cursor: pointer; /* Курсор указывает на кликабельность */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease;
+}
+
+#unlock-text:hover {
+    transform: scale(1.1);
+    color: #fff; /* Цвет при наведении */
+}
+
+#audio-controls {
+    margin-top: 30px; /* Отступ сверху */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Изначально скрыт */
+    transition: opacity 1s ease-in; /* Плавное появление */
+    transform: translateY(-20px); /* Немного поднимается при появлении */
+}
+
+#audio-controls.visible {
+    opacity: 1;
+    transform: translateY(0); /* Возвращается на место */
+}
+
+#play-pause-button {
+    font-size: 2.5em; /* Крупнее кнопка */
+    cursor: pointer;
+    margin-right: 15px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: #fff; /* Цвет кнопки */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+#play-pause-button:hover {
+    transform: scale(1.2);
+    color: #00bcd4; /* Цвет при наведении */
+}
+
+#music-label {
+    font-size: 1.2em;
+    font-style: italic;
+    color: #eee;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.main-content {
+    padding-top: 100vh; /* Отступ, чтобы основной контент начинался после прелоадера */
+    text-align: center;
+    padding-bottom: 50px;
+    display: none; /* Скрыт до разблокировки */
+}
+
+.section {
+    margin-bottom: 60px; /* Увеличим отступ между секциями */
+    padding: 30px; /* Увеличим внутренние отступы */
+    background-color: rgba(255, 255, 255, 0.85); /* Чуть более непрозрачный фон */
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Более выраженная тень */
+    max-width: 750px; /* Немного увеличим ширину */
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgba(0,0,0,0.05); /* Тонкая светлая рамка */
+}
+
+h2, h3 {
+    color: #0056b3; /* Цвет заголовков */
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 2.2em;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+p {
+    line-height: 1.7; /* Улучшенная читаемость текста */
+    font-size: 1.1em;
+}
+
+.date-section {
+    font-size: 1.6em;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 500;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Увеличим расстояние между элементами таймера */
+    font-size: 2em; /* Крупнее цифры таймера */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Для адаптивности на маленьких экранах */
+    padding: 0 10px; /* Добавим отступы по бокам */
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px; /* Минимальная ширина для каждого элемента */
+}
+
+.countdown-item span {
+    font-weight: bold;
+    color: #0056b3;
+    margin-bottom: 5px; /* Небольшой отступ от цифры к тексту */
+}
+
+.countdown-item div {
+    font-size: 0.6em; /* Меньше шрифт для подписей */
+    text-transform: uppercase;
+    color: #666;
+}
+
+.program-list, .venue-details, .dress-code-details {
+    text-align: left;
+    margin-top: 20px;
+    line-height: 1.7;
+    font-size: 1.1em;
+}
+
+.program-list li, .venue-details p, .dress-code-details p {
+    margin-bottom: 18px; /* Увеличим отступ между пунктами */
+}
+
+.social-link {
+    display: inline-flex; /* Чтобы работал margin */
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px; /* Больше отступ сверху */
+    font-size: 1.3em;
+    text-decoration: none;
+    color: #0077b5;
+    transition: color 0.3s ease, transform 0.3s ease;
+    padding: 10px 20px; /* Добавим padding для удобства клика */
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.9);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.social-link:hover {
+    color: #023e8a;
+    transform: translateY(-3px); /* Легкий эффект поднятия */
+    background-color: rgba(255,255,255,1);
+}
+
+.social-link i {
+    margin-right: 15px;
+    font-size: 1.9em; /* Увеличим иконку */
+}
+
+/* Анимация появления текста при прокрутке (стили ScrollReveal) */
+.sr-animated {
+    opacity: 0;
+    transform: translateY(30px); /* Начальное положение: ниже */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Плавность анимации */
+}
+
+.sr-animated.is-visible {
+    opacity: 1;
+    transform: translateY(0); /* Конечное положение: на месте */
+}
+
+/* Медиа-запросы для лучшей адаптивности */
+@media (max-width: 768px) {
+    #unlock-text {
+        font-size: 1.6em;
+    }
+    .countdown {
+        font-size: 1.6em;
+        gap: 20px;
+    }
+    .section {
+        margin: 20px 15px; /* Уменьшим боковые отступы на мобильных */
+        padding: 20px;
+    }
+    h2 { font-size: 1.8em; }
+    h3 { font-size: 1.5em; }
+    .date-section { font-size: 1.4em; }
+    .social-link { font-size: 1.1em; }
+    .social-link i { margin-right: 10px; font-size: 1.6em; }
+}
+
+@media (max-width: 480px) {
+    #unlock-text {
+        font-size: 1.3em;
+    }
+    .countdown {
+        font-size: 1.3em;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    .countdown-item {
+        min-width: auto; /* Убираем минимальную ширину */
+    }
+    .section {
+        margin: 10px 5px;
+        padding: 15px;
+    }
+    h2 { font-size: 1.6em; }
+    h3 { font-size: 1.3em; }
+    .date-section { font-size: 1.2em; }
+    .social-link { margin-top: 30px; font-size: 1em; }
+    .social-link i { margin-right: 8px; font-size: 1.4em; }
+}

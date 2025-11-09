@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу</title>
+    <!-- Подключение CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключение Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- CDN для ScrollReveal.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollreveal.js/4.0.9/scrollreveal.min.js"></script>
+</head>
+<body>
+
+    <!-- 1. Прелоадер с видеофоном и разблокировкой -->
+    <div id="preloader">
+        <video autoplay muted loop playsinline id="background-video">
+            <!-- Путь к вашему MP4 файлу -->
+            <source src="videoLove.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео тег.
+        </video>
+        <div class="content">
+            <div id="unlock-text">Разблокировать приглашение</div>
+        </div>
+    </div>
+
+    <!-- Основной контент сайта -->
+    <div class="main-content">
+
+        <!-- 2. Аудио контроль -->
+        <div id="audio-controls">
+            <i id="play-pause-button" class="fas fa-play"></i>
+            <div id="music-label">Включи музыку нашей любви...</div>
+        </div>
+
+        <!-- 3. Текст приглашения -->
+        <div class="section sr-animated">
+            <h2>Дорогие друзья</h2>
+            <p>
+                С огромной радостью и волнением приглашаем вас разделить с нами самый счастливый день – день нашей свадьбы!
+                Мы будем счастливы видеть вас среди наших гостей, чтобы вместе отпраздновать начало нашей семейной жизни.
+                Ваше присутствие станет для нас лучшим подарком!
+            </p>
+        </div>
+
+        <!-- 4. Дата свадьбы -->
+        <div class="section sr-animated">
+            <h3>Мы поженимся</h3>
+            <p class="date-section">
+                <!-- Укажите дату свадьбы в data-date и в тексте -->
+                <span id="wedding-date" data-date="2026-06-12 12:00:00">12 июня 2026 года</span>
+            </p>
+
+            <!-- 5. Таймер обратного отсчета -->
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <div>Дней</div>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <div>Часов</div>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <div>Минут</div>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <div>Секунд</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Программа -->
+        <div class="section sr-animated">
+            <h3>Программа дня</h3>
+            <ul class="program-list">
+                <li>14:00 - Церемония бракосочетания</li>
+                <li>15:00 - Фотосессия</li>
+                <li>17:00 - Праздничный ужин и вечерняя программа</li>
+                <li>00:00 - Завершение вечера</li>
+            </ul>
+        </div>
+
+        <!-- 7. Место проведения -->
+        <div class="section sr-animated">
+            <h3>Место проведения</h3>
+            <div class="venue-details">
+                <p><strong>Название:</strong> Ресторан "Райские Кущи"</p>
+                <p><strong>Адрес:</strong> ул. Солнечная, д. 10, г. Цветущий Город</p>
+                <p><strong>Как добраться:</strong> <a href="#" target="_blank">Карта</a></p>
+            </div>
+        </div>
+
+        <!-- 8. Дресс-код -->
+        <div class="section sr-animated">
+            <h3>Дресс-код</h3>
+            <div class="dress-code-details">
+                <p>Мы будем рады, если ваш наряд будет соответствовать стилю <strong>"Летний коктейль"</strong>. Акцент на светлые тона и натуральные ткани.</p>
+            </div>
+        </div>
+
+        <!-- 9. Телеграм канал -->
+        <div class="section sr-animated">
+            <a href="https://web.telegram.org/k/#@haremolchat" target="_blank" class="social-link" id="telegram-link">
+                <i class="fab fa-telegram"></i>
+                Телеграм канал
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Подключение JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
